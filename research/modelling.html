@@ -30,6 +30,28 @@
     <div class="centre body">
         <h1>Modelling</h1>
 
+        <p>
+            My modelling research centres on joint orbit fitting: building Bayesian models that simultaneously constrain orbits using radial velocities, direct imaging, absolute astrometry, and interferometry.
+        </p>
+        <p>
+            Traditional approaches treat these data types independently, but a planet produces correlated signatures across all of them. Combining constraints within a single model reveals companions missed by any single technique.
+        </p>
+        <p>
+            A major focus is Gaia astrometry. The Hipparcos-Gaia Catalog of Accelerations provides proper motion anomaly measurements that constrain companion masses and orbits for thousands of nearby stars. I have developed methods to exploit Gaia DR4 epoch astrometry when it is released.
+        </p>
+        <p>
+            I also work on fitting orbits directly to imaging data&mdash;sometimes called "de-orbiting." Rather than extracting astrometry from images, this approach samples orbital parameters directly from pixel values, enabling detection of planets too faint to appear in any single epoch by coherently combining observations over their orbital motion.
+        </p>
+        <p>
+            Beyond fitting, I emphasize rigorous model validation. Techniques like simulation-based calibration verify that posteriors are correctly calibrated, while cross-validation and posterior predictive checks identify outliers and model misspecification. These tools are essential for trusting results from complex joint models.
+        </p>
+        <p>
+            To make these methods practical, I built Octofitter around a custom probabilistic programming system. User-specified models are transformed at compile time into type-stable, automatically differentiable code. This enables gradient-based sampling (Hamiltonian Monte Carlo) with performance competitive with hand-written implementations&mdash;fits that once took hours now run in minutes.
+        </p>
+        <p>
+            See the <a href="software.html">Software</a> page for more details on Octofitter and related packages.
+        </p>
+
         <p class="octo">🐙</p>
     </div>
 </body>
