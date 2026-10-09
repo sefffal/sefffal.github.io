@@ -1,9 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>William Thompson</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Observational Work | William Thompson</title>
         <link rel="stylesheet" type="text/css" href="../main.css" />
         <link rel="stylesheet" type="text/css" href="../stars.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
         <div class="header stars-container">
@@ -12,10 +14,11 @@
                 <h3>Astronomer</h3>
                 <hr>
                 <a class="bread" href="../index.html">Home</a>
-                <a class="bread" href="../research">Research</a>
+                <a class="bread" href="../research/">Research</a>
+                <a class="bread" href="../students.html">Students</a>
                 <a class="bread" href="../cv.html">CV</a>
-                <a class="bread social" href="http://github.com/sefffal">GitHub</a>
-                <a class="bread social" href="http://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
                 <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
                 <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
             </div>
@@ -25,30 +28,52 @@
         </div>
         <div class="centre body">
             <h1>Observational Work</h1>
+
+            <h3>Recent highlights</h3>
+            <ul>
+                <li>
+                    <strong>ε Eridani b.</strong> One of the nearest Jupiter analogues, at 3.2 parsecs.
+                    By combining decades of radial velocities from eight instruments with Hipparcos, Hubble, and Gaia astrometry, we found that it has a mass of about one Jupiter mass on a near-circular orbit (<a href="https://doi.org/10.3847/1538-3881/ae0cbd">Thompson et al. 2025</a>).
+                    These orbit predictions help plan attempts to image it directly.
+                </li>
+                <li>
+                    <strong>Gliese 229 B.</strong> This famous brown dwarf turned out to be two brown dwarfs orbiting each other every 12 days, resolved with VLTI GRAVITY and VLT CRIRES+ spectroscopy (<a href="https://doi.org/10.1038/s41586-024-08064-x">Xuan, Mérand, Thompson et al. 2024, Nature</a>).
+                    I worked on the orbit modelling, and followed up with a <a href="https://doi.org/10.3847/1538-3881/adb4f2">joint fit of the inner and outer orbits</a>.
+                </li>
+                <li>
+                    <strong>ε Indi Ab.</strong> A cold giant planet imaged by JWST. Orbit fits using only pre-JWST data correctly predicted where the planet was found, and the combined data give a precise dynamical mass (<a href="https://arxiv.org/abs/2603.08787">Sanghi, Thompson et al. 2026</a>).
+                </li>
+                <li>
+                    <strong>JWST follow-up of Gaia planets.</strong> I am co-PI of JWST Cycle 5 program <a href="https://www.stsci.edu/jwst-program-info/download/jwst/pdf/11023/">GO 11023</a> (PI J. Xuan, co-PIs D. Blakely and W. Thompson).
+                    It uses the NIRSpec integral field unit to search nine nearby young stars for giant planet candidates identified by astrometry, at solar-system-like separations.
+                </li>
+            </ul>
+
+            <h3>HR 8799</h3>
             <p>
-                One of my largest observational projects to date has been the Deep orbital Search for Additoinal Planets in the HR8799 system (<a href="https://iopscience.iop.org/article/10.3847/1538-3881/aca1af">Thompson et al, 2022</a>). The image below combines four quarter-nights of Keck NIRC2 data to display the four known planets in the HR8799 system (<a href="https://www.nature.com/articles/nature09684">Marois et al, 2010</a>).
+                One of my largest observational projects to date has been the Deep Orbital Search for Additional Planets in the HR 8799 system (<a href="https://doi.org/10.3847/1538-3881/aca1af">Thompson et al. 2023</a>). The image below combines four quarter-nights of Keck NIRC2 data to display the four known planets in the HR 8799 system (<a href="https://www.nature.com/articles/nature09684">Marois et al. 2010</a>).
             </p>
             <p>
-                These four planets are the first directly imaged planetary massed objects outside our solar system, and have been extensively studied.
+                These four planets were among the first planetary-mass objects outside our solar system to be directly imaged, and have been extensively studied.
             </p>
             <p>
-                My work on this system included observering and gathering 16 nights of NIRC2 observations, developing new ADI post-processing techniques (<a href="https://iopscience.iop.org/article/10.3847/1538-3881/abee7d/pdf">Thompson &amp; Marois, 2021</a>) and developing new orbit modelling techniques to search for faint companions in the presence of orbital motion.
+                My work on this system included observing and gathering 16 nights of NIRC2 observations, developing new ADI post-processing techniques (<a href="https://doi.org/10.3847/1538-3881/abee7d">Thompson &amp; Marois, 2021</a>), and developing new orbit modelling techniques to search for faint companions in the presence of orbital motion.
             </p>
             <p>
                 This project led to the detection of a candidate fifth inner planet: a possible explanation for proper motion measurements that are in tension with atmosphere models.
-                The orbital constraints from this program are also unique in that they come entirely from Keck L band images, an insturment that has exceptionally well-calibrated astrometry. Other instruments like GRAVITY can far exceed the precision of these measurements, but can't yet match the long time baseline.
+                The orbital constraints from this program are also unique in that they come entirely from Keck L-band images, an instrument with exceptionally well-calibrated astrometry. Other instruments like GRAVITY can far exceed the precision of these measurements, but can't yet match the long time baseline.
             </p>
 
             <p>Below is one of the highest SNR images recorded of the four confirmed planets:</p>
-            <img src="../images/hr8799-crop-web.png" width="250" />
+            <img src="../images/hr8799-crop-web.png" width="250" alt="Keck NIRC2 image of the four HR 8799 planets" />
             <p>And here is that same image, with orbits of the four confirmed and fifth candidate planet (with orbits derived exclusively from Keck images in this program):</p>
-            <img src="../images/hr8799-orbits.jpg" style="border:2px solid black" width="250" />
+            <img src="../images/hr8799-orbits.jpg" style="border:2px solid black" width="250" alt="HR 8799 image with planet orbits overlaid" />
 
             <p>
                 I also used data from this project to create the first 100% uniformly reduced orbital animation of the system, see here:
             </p>
 
-            <video width="250" height="250" loop="" autoplay="false" muted="" id="hr8799">
+            <video width="250" height="250" loop="" autoplay="" muted="" playsinline="" id="hr8799">
                 <source src="../images/orbital-animation.mp4"
                     type="video/mp4">
                 Your browser does not support the video tag.
@@ -58,19 +83,21 @@
             <button onclick="window.open('../images/orbital-animation.mp4')">Download</button>
             </div>
             <p>
-            This animation uses a keplerian motion interpolation scheme to smoothly move between images.
+            This animation uses a Keplerian motion interpolation scheme to smoothly move between images.
             </p>
-            <h3>Other Projects</h3>
+
+            <h3>Other projects</h3>
             <p>
-                Currently observational work includes:
+                Current observational work includes:
             </p>
             <ul>
-                <li>Efforts to directly lower mass and cooler companions around nearby stars, both at thermal wavelengths from the ground and from space.</li>
-                <li>Various observational programs with VLTI-GRAVITY</li>
-                <li>Orbits of Moving Group Binaries with Eric Nielsen </li>
-                <li>The Subaru/Keck accelerating stars program with Thayne Currie</li>
-            </p>
+                <li>Efforts to directly image lower-mass and cooler companions around nearby stars, both at thermal wavelengths from the ground and from space.</li>
+                <li>Following up Gaia-selected stars with JWST and large ground-based telescopes.</li>
+                <li>Various observational programs with VLTI GRAVITY.</li>
+                <li>Orbits of moving group binaries with Eric Nielsen.</li>
+                <li>The Subaru/Keck accelerating stars program (OASIS) with Thayne Currie.</li>
             </ul>
+            <p class="updated">Last updated October 2026</p>
             <p class="octo">🐙</p>
         </div>
     </body>

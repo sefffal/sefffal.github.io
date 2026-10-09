@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Astrometry | William Thompson</title>
+        <meta name="description" content="A short introduction to astrometry: how measuring the positions of stars with Hipparcos and Gaia reveals exoplanets, and why Gaia DR4 matters." />
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <link rel="stylesheet" type="text/css" href="stars.css" />
+    </head>
+    <body>
+        <div class="header stars-container">
+            <div class="body centre">
+                <h1>William Thompson</h1>
+                <h3>Astronomer</h3>
+                <hr>
+                <a class="bread" href="index.html">Home</a>
+                <a class="bread" href="research/">Research</a>
+                <a class="bread" href="students.html">Students</a>
+                <a class="bread" href="cv.html">CV</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
+                <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
+            </div>
+            <div id='stars'></div>
+            <div id='stars2'></div>
+            <div id='stars3'></div>
+        </div>
+        <div class="centre body">
+            <h1>Astrometry: Finding Planets by Watching Stars Move</h1>
+
+            <p>
+                Astrometry is the measurement of where stars are on the sky, and of how those positions change over time.
+                It is the oldest branch of astronomy: Hipparchus compiled a star catalogue more than 2,000 years ago.
+                Thanks to the European Space Agency's Gaia mission, it is now also one of the most exciting new ways to find planets.
+            </p>
+
+            <h3>Why stars move</h3>
+            <p>Over the years, a star's position on the sky changes for three main reasons.</p>
+            <ul>
+                <li><strong>Proper motion.</strong> The star and the Sun both move through the Galaxy, so the star slowly drifts across the sky in a nearly straight line. Nearby stars typically drift by tens to hundreds of milliarcseconds each year.</li>
+                <li><strong>Parallax.</strong> As Earth orbits the Sun, our viewpoint shifts, and nearby stars appear to trace a small ellipse once per year. The size of that ellipse gives the star's distance. A star 10 parsecs (about 33 light-years) away has a parallax of 100 milliarcseconds.</li>
+                <li><strong>Orbiting companions.</strong> A star with a planet does not sit still at the centre of its system. The star and planet both orbit their common centre of mass, so the star traces out a tiny copy of the planet's orbit, scaled down by the ratio of their masses.</li>
+            </ul>
+            <p>
+                Together, these give a star with a planet a looping, wobbling path across the sky.
+                Finding the planet means measuring that path precisely enough to separate the planet's tiny contribution from the much larger effects of proper motion and parallax.
+                Try it below: turn the effects on and off, and change the mass of the planet.
+            </p>
+
+            <figure>
+                <canvas id="sky" aria-label="Animated simulation of a star's path on the sky, combining proper motion, parallax and the wobble caused by an orbiting planet."></canvas>
+                <div class="controls">
+                    <button id="sky-play" type="button">Pause</button>
+                    <label><input type="checkbox" id="show-pm" checked> Proper motion</label>
+                    <label><input type="checkbox" id="show-plx" checked> Parallax</label>
+                    <label><input type="checkbox" id="show-planet" checked> Planet</label>
+                    <label><input type="checkbox" id="boost" checked> Exaggerate wobble 20&times;</label>
+                </div>
+                <div class="controls">
+                    <label for="mass">Companion mass:</label>
+                    <input type="range" id="mass" min="1" max="80" step="1" value="10">
+                    <span id="mass-out">10 Jupiter masses</span>
+                </div>
+                <div class="readout" id="sky-readout"></div>
+                <figcaption>
+                    A simulated Sun-like star 10 parsecs away, with a companion on a 7-year orbit, over 10 years. North is up and east is to the left.
+                    Yellow circles mark individual position measurements, like the ones Gaia DR4 will provide over its 5.5-year span.
+                    With exaggeration off, the wobble is drawn to scale; turn off proper motion and parallax to see the wobble on its own.
+                </figcaption>
+            </figure>
+
+            <h3>How big is the wobble?</h3>
+            <p>
+                The size of the star's wobble on the sky depends on the planet's mass compared with the star's, on the size of the planet's orbit <em>a</em>, and on the distance to the system <em>d</em>:
+            </p>
+            <div class="equation">
+                &alpha; &asymp;
+                <span class="frac"><span>M<sub>planet</sub></span><span>M<sub>star</sub></span></span>
+                &times;
+                <span class="frac"><span><em>a</em> / 1&nbsp;au</span><span><em>d</em> / 1&nbsp;pc</span></span>
+                arcseconds
+            </div>
+            <p>
+                For Jupiter and the Sun, seen from 10 parsecs, that comes to about half a milliarcsecond (mas).
+                That is roughly the width of a loonie seen from the other side of the Earth.
+                Earth's effect on the Sun is more than 1,500 times smaller still.
+            </p>
+            <table class="simple">
+                <tr><th>Seen from 10 parsecs</th><th class="num">Size of the star's wobble</th></tr>
+                <tr><td>A 10 Jupiter-mass planet at 5 au from a Sun-like star</td><td class="num">4.8 mas</td></tr>
+                <tr><td>Jupiter and the Sun</td><td class="num">0.50 mas</td></tr>
+                <tr><td>Saturn and the Sun</td><td class="num">0.27 mas</td></tr>
+                <tr><td>Earth and the Sun</td><td class="num">0.0003 mas</td></tr>
+                <tr><th>For comparison</th><th class="num">Precision</th></tr>
+                <tr><td>Hipparcos positions of bright stars (1990s)</td><td class="num">~1 mas</td></tr>
+                <tr><td>Gaia DR3 parallaxes of bright stars</td><td class="num">~0.02 mas</td></tr>
+            </table>
+            <p>
+                Notice that the wobble grows with the size of the orbit.
+                That is the opposite of the other main detection methods: radial-velocity signals shrink for wider orbits, and transits become rarer.
+                Astrometry is therefore most sensitive to giant planets at the distances of Jupiter and Saturn, as long as we watch long enough to see the orbit bend.
+                That can take a while: Jupiter takes 12 years to orbit the Sun, and Saturn takes 29.
+            </p>
+
+            <h3>Hipparcos and Gaia</h3>
+            <p>
+                Two European Space Agency missions make this possible today.
+                <a href="https://www.cosmos.esa.int/web/hipparcos">Hipparcos</a> (1989&ndash;1993) measured the positions of about 118,000 bright stars to about one milliarcsecond.
+                <a href="https://www.cosmos.esa.int/web/gaia">Gaia</a>, launched in December 2013, observed nearly two billion stars until it finished science observations in January 2025.
+                For bright stars it is tens of times more precise than Hipparcos.
+            </p>
+            <p>
+                Gaia's earlier data releases, DR2 (2018) and DR3 (2022), did not include each star's individual measurements.
+                Instead they reported a summary: a single position, parallax, and proper motion for each star.
+                Even so, those summaries can reveal planets.
+                Comparing a star's Hipparcos position from 1991 with its Gaia position from 2016 gives its average motion over 25 years.
+                If that long-term average differs from the short-term proper motion measured by either mission on its own, something is pulling on the star.
+                This difference is called the <em>proper motion anomaly</em> (see e.g. <a href="https://doi.org/10.3847/1538-4365/abf93c">Brandt 2021</a> and <a href="https://doi.org/10.1051/0004-6361/202142146">Kervella et al. 2022</a>).
+                It has pointed the way to several directly imaged planets and brown dwarfs.
+            </p>
+            <figure>
+                <svg viewBox="0 0 640 300" width="100%" role="img" aria-labelledby="pma-title" style="max-width:640px; display:block; background:#fafafa; border:1px solid #ddd">
+  <title id="pma-title">Diagram of the proper motion anomaly: a star's curved path, with Hipparcos and Gaia proper-motion arrows differing from the straight line joining the two positions.</title>
+  <defs>
+    <marker id="arrH" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f77b4"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2ca02c"/></marker>
+  </defs>
+  <path d="M 40.0,140.1 L 42.5,140.6 L 44.9,141.0 L 47.3,141.5 L 49.7,141.9 L 52.2,142.4 L 54.6,142.9 L 57.0,143.4 L 59.3,143.9 L 61.7,144.4 L 64.1,144.9 L 66.4,145.4 L 68.8,145.9 L 71.1,146.4 L 73.5,146.9 L 75.8,147.4 L 78.1,148.0 L 80.4,148.5 L 82.7,149.0 L 84.9,149.6 L 87.2,150.1 L 89.5,150.7 L 91.7,151.2 L 93.9,151.8 L 96.2,152.3 L 98.4,152.9 L 100.6,153.4 L 102.8,154.0 L 105.0,154.6 L 107.1,155.1 L 109.3,155.7 L 111.4,156.3 L 113.6,156.8 L 115.7,157.4 L 117.8,158.0 L 119.9,158.6 L 122.0,159.2 L 124.1,159.7 L 126.2,160.3 L 128.3,160.9 L 130.3,161.5 L 132.4,162.1 L 134.4,162.7 L 136.4,163.2 L 138.4,163.8 L 140.4,164.4 L 142.4,165.0 L 144.4,165.6 L 146.4,166.2 L 148.3,166.8 L 150.3,167.3 L 152.2,167.9 L 154.1,168.5 L 156.0,169.1 L 157.9,169.7 L 159.8,170.2 L 161.7,170.8 L 163.6,171.4 L 165.4,172.0 L 167.3,172.5 L 169.1,173.1 L 171.0,173.7 L 172.8,174.2 L 174.6,174.8 L 176.4,175.3 L 178.2,175.9 L 179.9,176.4 L 181.7,177.0 L 183.5,177.5 L 185.2,178.0 L 186.9,178.6 L 188.7,179.1 L 190.4,179.6 L 192.1,180.2 L 193.8,180.7 L 195.5,181.2 L 197.1,181.7 L 198.8,182.2 L 200.5,182.7 L 202.1,183.2 L 203.7,183.7 L 205.4,184.2 L 207.0,184.6 L 208.6,185.1 L 210.2,185.6 L 211.8,186.0 L 213.4,186.5 L 214.9,186.9 L 216.5,187.4 L 218.1,187.8 L 219.6,188.2 L 221.1,188.7 L 222.7,189.1 L 224.2,189.5 L 225.7,189.9 L 227.2,190.3 L 228.7,190.7 L 230.2,191.0 L 231.7,191.4 L 233.1,191.8 L 234.6,192.1 L 236.1,192.5 L 237.5,192.8 L 239.0,193.2 L 240.4,193.5 L 241.8,193.8 L 243.2,194.1 L 244.6,194.4 L 246.1,194.7 L 247.5,195.0 L 248.8,195.3 L 250.2,195.5 L 251.6,195.8 L 253.0,196.0 L 254.4,196.3 L 255.7,196.5 L 257.1,196.7 L 258.4,196.9 L 259.8,197.1 L 261.1,197.3 L 262.4,197.5 L 263.8,197.7 L 265.1,197.9 L 266.4,198.0 L 267.7,198.2 L 269.0,198.3 L 270.4,198.4 L 271.7,198.5 L 273.0,198.6 L 274.2,198.7 L 275.5,198.8 L 276.8,198.9 L 278.1,198.9 L 279.4,199.0 L 280.7,199.0 L 281.9,199.1 L 283.2,199.1 L 284.5,199.1 L 285.7,199.1 L 287.0,199.1 L 288.3,199.1 L 289.5,199.1 L 290.8,199.0 L 292.0,199.0 L 293.3,198.9 L 294.5,198.8 L 295.8,198.7 L 297.0,198.7 L 298.3,198.5 L 299.5,198.4 L 300.7,198.3 L 302.0,198.2 L 303.2,198.0 L 304.5,197.9 L 305.7,197.7 L 306.9,197.5 L 308.2,197.3 L 309.4,197.1 L 310.7,196.9 L 311.9,196.7 L 313.2,196.4 L 314.4,196.2 L 315.6,195.9 L 316.9,195.7 L 318.1,195.4 L 319.4,195.1 L 320.6,194.8 L 321.9,194.5 L 323.1,194.2 L 324.4,193.8 L 325.6,193.5 L 326.9,193.1 L 328.2,192.8 L 329.4,192.4 L 330.7,192.0 L 332.0,191.6 L 333.2,191.2 L 334.5,190.8 L 335.8,190.4 L 337.1,189.9 L 338.4,189.5 L 339.7,189.0 L 341.0,188.6 L 342.3,188.1 L 343.6,187.6 L 344.9,187.1 L 346.2,186.6 L 347.5,186.1 L 348.8,185.5 L 350.1,185.0 L 351.5,184.5 L 352.8,183.9 L 354.1,183.3 L 355.5,182.8 L 356.8,182.2 L 358.2,181.6 L 359.6,181.0 L 360.9,180.4 L 362.3,179.7 L 363.7,179.1 L 365.1,178.5 L 366.5,177.8 L 367.9,177.2 L 369.3,176.5 L 370.7,175.8 L 372.1,175.1 L 373.5,174.5 L 375.0,173.8 L 376.4,173.1 L 377.9,172.3 L 379.3,171.6 L 380.8,170.9 L 382.3,170.2 L 383.7,169.4 L 385.2,168.7 L 386.7,167.9 L 388.2,167.1 L 389.8,166.4 L 391.3,165.6 L 392.8,164.8 L 394.3,164.0 L 395.9,163.2 L 397.4,162.4 L 399.0,161.6 L 400.6,160.7 L 402.2,159.9 L 403.8,159.1 L 405.4,158.3 L 407.0,157.4 L 408.6,156.6 L 410.2,155.7 L 411.9,154.8 L 413.5,154.0 L 415.2,153.1 L 416.8,152.2 L 418.5,151.4 L 420.2,150.5 L 421.9,149.6 L 423.6,148.7 L 425.3,147.8 L 427.0,146.9 L 428.8,146.0 L 430.5,145.1 L 432.3,144.2 L 434.0,143.2 L 435.8,142.3 L 437.6,141.4 L 439.4,140.5 L 441.2,139.5 L 443.0,138.6 L 444.9,137.7 L 446.7,136.7 L 448.6,135.8 L 450.4,134.9 L 452.3,133.9 L 454.2,133.0 L 456.1,132.0 L 458.0,131.1 L 459.9,130.1 L 461.8,129.2 L 463.7,128.2 L 465.7,127.3 L 467.6,126.3 L 469.6,125.3 L 471.6,124.4 L 473.6,123.4 L 475.6,122.5 L 477.6,121.5 L 479.6,120.6 L 481.7,119.6 L 483.7,118.6 L 485.8,117.7 L 487.8,116.7 L 489.9,115.8 L 492.0,114.8 L 494.1,113.9 L 496.2,112.9 L 498.3,112.0 L 500.5,111.0 L 502.6,110.1 L 504.8,109.1 L 506.9,108.2 L 509.1,107.3 L 511.3,106.3 L 513.5,105.4 L 515.7,104.4 L 517.9,103.5 L 520.1,102.6 L 522.4,101.7 L 524.6,100.8 L 526.9,99.8 L 529.1,98.9 L 531.4,98.0 L 533.7,97.1 L 536.0,96.2 L 538.3,95.3 L 540.6,94.4 L 543.0,93.5 L 545.3,92.6 L 547.6,91.8 L 550.0,90.9" fill="none" stroke="#999" stroke-width="2"/>
+  <line x1="139.2" y1="173.0" x2="493.2" y2="135.4" stroke="#d95f02" stroke-width="2" stroke-dasharray="7 5"/>
+  <line x1="161.3" y1="170.7" x2="255.2" y2="199.4" stroke="#1f77b4" stroke-width="3" marker-end="url(#arrH)"/>
+  <line x1="437.9" y1="141.3" x2="527.6" y2="95.0" stroke="#2ca02c" stroke-width="3" marker-end="url(#arrG)"/>
+  <circle cx="161.3" cy="170.7" r="6" fill="#1f77b4" stroke="#fff" stroke-width="1.5"/>
+  <circle cx="437.9" cy="141.3" r="6" fill="#2ca02c" stroke="#fff" stroke-width="1.5"/>
+  <g font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="14">
+    <text x="165.3" y="156.7" fill="#1f77b4" text-anchor="end">Hipparcos (1991)</text>
+    <text x="449.9" y="165.3" fill="#2ca02c">Gaia (2016)</text>
+    <text x="40" y="26" fill="#666">Grey: path of the star on the sky (wobble exaggerated)</text>
+    <text x="40" y="264" fill="#d95f02">Dashed: average motion between the two missions (25 years)</text>
+    <text x="40" y="286" fill="#333">Arrows: proper motion measured by each mission on its own</text>
+  </g>
+</svg>
+                <figcaption>
+                    A star pulled by an unseen companion moves along a gently curving path.
+                    The proper motion that each mission measures over its few years of operation points along the path at that moment.
+                    The difference between those arrows and the 25-year average is the proper motion anomaly.
+                </figcaption>
+            </figure>
+            <p>
+                In <a href="https://doi.org/10.3847/1538-3881/ae64ed">G23H</a>, my collaborators and I combined these and several other summary measurements into a single model.
+                These include calibrated Gaia DR2 data, the Hipparcos intermediate astrometric data, and the excess noise in Gaia's fits.
+                That lets us fit full orbits using only data that already exists.
+                In some cases, like the planet 14 Herculis b, it can confirm a planet from Gaia and Hipparcos alone.
+                You can browse the results for more than 100,000 stars on <a href="https://exopost.wthompson.space">Exopost</a>.
+            </p>
+
+            <h3>Gaia DR4: the next big step</h3>
+            <p>
+                Gaia's fourth data release is <a href="https://www.cosmos.esa.int/web/gaia/news-2026">scheduled for 2 December 2026</a>.
+                It covers the first 5.5 years of the mission and, for the first time, includes the epoch astrometry: dozens of separate position measurements for each star.
+                Instead of a summary, we will be able to see each star's path directly, and fit orbits to it.
+                Predictions suggest that DR4 will reveal thousands of giant planets (e.g. <a href="https://doi.org/10.1088/0004-637X/797/1/14">Perryman et al. 2014</a>).
+                A final release, <a href="https://www.cosmos.esa.int/web/gaia/release">DR5</a>, covering all 10.5 years of observations, is expected no earlier than the end of 2030.
+            </p>
+            <p>
+                DR4's 5.5-year window is ideal for planets with orbits of a few years.
+                For wider orbits like Jupiter's and Saturn's, Gaia alone will only see part of each orbit.
+                Combining it with Hipparcos, the earlier Gaia releases, radial velocities, and imaging will remain essential.
+            </p>
+
+            <h3>Why combine techniques?</h3>
+            <p>
+                Each detection method sees a planetary system from a different angle.
+                Radial velocities measure the star's motion towards and away from us, which gives the planet's mass only up to an unknown factor that depends on the orbit's tilt.
+                Astrometry measures the star's motion in the other two directions, across the sky.
+                Direct imaging sees light from the planet itself.
+                Put together in a single model, they give the full three-dimensional orbit and the planet's true mass.
+            </p>
+            <figure style="text-align:center">
+                <img src="images/fit-pma-rv-astrom.png" alt="Octofitter orbit fit combining relative astrometry, radial velocities and Hipparcos-Gaia proper motions" style="max-width:360px; width:100%" />
+                <figcaption style="text-align:left">
+                    An <a href="https://sefffal.github.io/Octofitter.jl/">Octofitter</a> fit to one companion, combining its positions measured in direct images (top panels), the star's radial velocity (middle), and Hipparcos and Gaia proper motions (lower panels).
+                    Each coloured curve is one possible orbit drawn from the posterior.
+                </figcaption>
+            </figure>
+            <p>
+                Astrometry also tells us where to look.
+                A planet detected by Gaia comes with a predicted position and brightness, so telescopes like JWST can point straight at it.
+                That turns direct imaging from a blind search into the follow-up of known planets, and lets us measure the atmospheres of planets that are older, colder, and more like Jupiter than the young planets imaged so far.
+            </p>
+
+            <h3>Further reading</h3>
+            <ul>
+                <li><a href="https://www.cosmos.esa.int/web/gaia">ESA's Gaia pages</a>, including <a href="https://www.cosmos.esa.int/web/gaia/dr4">what DR4 will contain</a></li>
+                <li><a href="https://doi.org/10.1088/0004-637X/797/1/14">Perryman et al. 2014</a>, predictions for planet discoveries with Gaia</li>
+                <li><a href="https://doi.org/10.3847/1538-4365/abf93c">Brandt 2021</a>, the Hipparcos&ndash;Gaia Catalog of Accelerations</li>
+                <li><a href="https://doi.org/10.3847/1538-3881/ae64ed">Thompson et al. 2026</a>, the G23H catalog and method</li>
+                <li><a href="https://sefffal.github.io/Octofitter.jl/">Octofitter</a>, open-source software for joint orbit fitting</li>
+                <li><a href="https://exopost.wthompson.space">Exopost</a>, companion posteriors for more than 100,000 stars</li>
+            </ul>
+
+            <p class="updated">Last updated October 2026</p>
+            <p class="octo">🐙</p>
+        </div>
+        <script src="astrometry.js"></script>
+    </body>
+</html>

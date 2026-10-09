@@ -1,9 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>William Thompson</title>
+        <meta name="description" content="William Thompson, astronomer: exoplanets, Gaia astrometry, orbit modelling and high-contrast instrumentation. Plaskett Fellow at NRC Herzberg, joining the University of Victoria as Assistant Professor in July 2027." />
         <link rel="stylesheet" type="text/css" href="main.css" />
         <link rel="stylesheet" type="text/css" href="stars.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
         <div class="header stars-container">
@@ -13,9 +16,10 @@
                 <hr>
                 <a class="bread" href="index.html">Home</a>
                 <a class="bread" href="research/">Research</a>
+                <a class="bread" href="students.html">Students</a>
                 <a class="bread" href="cv.html">CV</a>
-                <a class="bread social" href="http://github.com/sefffal">GitHub</a>
-                <a class="bread social" href="http://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
                 <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
                 <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
             </div>
@@ -25,32 +29,77 @@
         </div>
         <div class="centre body">
             <p>
-                <img src="images/profile-photo.png" width="250" style="float:right; margin-left: 1rem;" />
-                I am a Plaskett Fellow at the National Research Council of Canada, Herzberg Astronomy and Astrophysics (HAA) in Victoria, British Columbia.
-                <br/>
+                <img class="profile" src="images/profile-photo.png" alt="Photo of William Thompson" />
+                I am an astronomer who studies exoplanets: how to find them, how to weigh them, and how common they are.
+                I am currently a Plaskett Fellow at the National Research Council of Canada's Herzberg Astronomy and Astrophysics Research Centre (NRC HAA) in Victoria, British Columbia.
+            </p>
+            <p>
+                <strong>In July 2027 I will join the <a href="https://www.uvic.ca/science/physics/">Department of Physics and Astronomy at the University of Victoria</a> as an Assistant Professor.</strong>
+            </p>
+            <p>
                 I completed my PhD at the University of Victoria under the supervision of Christian Marois, and hold a Bachelor's in Physics and a Bachelor's in Computing from Queen's University.
+                My thesis received the 2025 Plaskett Medal.
+            </p>
+
+            <div class="callout">
+                <strong>Prospective students:</strong> I am building a research group at UVic and am considering applications for MSc and PhD students to start from September 2027.
+                See the <a href="students.html">prospective students page</a> for project areas and how to apply.
+                UVic's application deadline for September 2027 entry is <strong>1&nbsp;December&nbsp;2026</strong>.
+            </div>
+
+            <h3>Research</h3>
+            <p>
+                Most of what we know about exoplanets comes from planets close to their stars.
+                Giant planets at the distances of Jupiter and Saturn are much harder to find. Transits are rare at those distances, radial-velocity surveys need decades of data, and direct imaging only detects the youngest, brightest planets.
+                Astrometry, the precise measurement of how stars move across the sky, is most sensitive to exactly these orbits.
+                <a href="astrometry.html">Here is a short introduction to how it works.</a>
             </p>
             <p>
-                My research focuses on detecting and characterizing exoplanets through multi-technique approaches. I develop orbit modelling methods that jointly analyze Gaia astrometry, radial velocities, direct imaging, and interferometry to reveal planetary systems that would be missed by any single technique alone.
+                I develop orbit-modelling methods that jointly analyze Gaia and Hipparcos astrometry, radial velocities, direct imaging, and interferometry, so that each kind of data helps constrain the others.
+                With collaborators I recently published <a href="https://doi.org/10.3847/1538-3881/ae64ed">G23H</a>, a calibrated combination of Gaia DR2, Gaia DR3 and Hipparcos for finding companions in data that already exists.
+                We have also released <a href="https://exopost.wthompson.space">Exopost</a>, a public website for browsing orbit posteriors and detection limits for more than 100,000 stars.
+                Gaia's fourth data release, scheduled for 2 December 2026, will be the first to include the individual position measurements for each star. I am preparing to use it to measure how common giant planets and brown dwarfs are, and how that depends on the properties of their host stars.
             </p>
             <p>
-                On the instrumentation side, I played a major role in the SPIDERS project&mdash;a high-contrast imaging spectrograph that has now been successfully deployed at the Subaru Telescope. This instrument enables detailed spectroscopic characterization of directly imaged exoplanets and brown dwarfs.
+                I also build instruments. I played a major role in SPIDERS, a high-contrast imaging pathfinder now deployed at the Subaru Telescope, which demonstrates new focal-plane wavefront sensing techniques.
+                That work feeds into the GPI&nbsp;2.0 upgrade for Gemini North, and into technology for future space telescopes such as NASA's Habitable Worlds Observatory.
             </p>
             <p>
-                I have strong interests in applied computational methods including astrostatistics, differentiable physics, and both high-performance and real-time computing. I advocate for the adoption of the Julia programming language in astronomy, and maintain several popular packages.
+                I have strong interests in applied computational methods including astrostatistics, differentiable physics, and both high-performance and real-time computing.
+                I advocate for the adoption of the Julia programming language in astronomy, and maintain several popular packages including <a href="https://sefffal.github.io/Octofitter.jl/">Octofitter</a> and <a href="https://sefffal.github.io/PairPlots.jl/">PairPlots</a>.
+                See my <a href="research/">research pages</a> for more.
             </p>
+
+            <h3>News</h3>
+            <ul class="news">
+                <li><span class="date">Dec 2026</span><span>Gaia Data Release 4 is <a href="https://www.cosmos.esa.int/web/gaia/news-2026">scheduled for 2 December</a>. It will be the first Gaia release with epoch astrometry for every star.</span></li>
+                <li><span class="date">2026</span><span>I have accepted a position as Assistant Professor in Physics and Astronomy at the University of Victoria, starting July 2027. <a href="students.html">Information for prospective students.</a></span></li>
+                <li><span class="date">2026</span><span>The G23H catalog paper is published in the Astronomical Journal (<a href="https://doi.org/10.3847/1538-3881/ae64ed">Thompson et al. 2026, AJ 172, 53</a>), along with calibrated Gaia DR2 data for 18 million stars.</span></li>
+                <li><span class="date">2026</span><span><a href="https://exopost.wthompson.space">Exopost</a> is live: a public browser of companion posteriors and detection limits for more than 100,000 stars.</span></li>
+                <li><span class="date">2026</span><span>Our JWST Cycle 5 program (<a href="https://www.stsci.edu/jwst-program-info/download/jwst/pdf/11023/">GO 11023</a>; PI J. Xuan, co-PIs D. Blakely and W. Thompson) will use NIRSpec to search for giant planet candidates identified by astrometry at solar-system-like separations.</span></li>
+                <li><span class="date">2025</span><span>Awarded the Plaskett Medal, given by CASCA and the RASC for the most outstanding Canadian doctoral thesis in astronomy or astrophysics.</span></li>
+                <li><span class="date">2025</span><span>A revised mass and orbit for ε Eridani b: a one-Jupiter-mass planet on a near-circular orbit (<a href="https://doi.org/10.3847/1538-3881/ae0cbd">Thompson et al. 2025, AJ 170, 301</a>).</span></li>
+                <li><span class="date">2024</span><span>The brown dwarf Gliese 229 B turns out to be a tight binary (<a href="https://doi.org/10.1038/s41586-024-08064-x">Xuan, Mérand, Thompson et al. 2024, Nature</a>).</span></li>
+            </ul>
+
             <h3>Contact</h3>
             <p>
                 Email: <u>William [dot] Thompson [at] nrc-cnrc [dot] gc [dot] ca</u><br/>
                 <br/>Office #332<br/>
-                NRC-Herzberg Astronomy and Astrophysics<br/>
+                NRC Herzberg Astronomy and Astrophysics<br/>
                 5071 W Saanich Rd<br/>
                 Victoria, BC V9E 2E7
             </p>
+            <p>
+                From July 2027: Department of Physics and Astronomy, University of Victoria.
+            </p>
             <h3>More</h3>
-            <p><a href="research">Research</a></p>
+            <p><a href="research/">Research</a></p>
+            <p><a href="astrometry.html">What is astrometry?</a></p>
+            <p><a href="students.html">Prospective students</a></p>
             <p><a href="cv.html">CV</a></p>
             <p><a href="https://search.library.uvic.ca/discovery/fulldisplay?docid=alma9957772960407291&context=L&vid=01VIC_INST:01UVIC&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=LIBALL&query=any,contains,lights%20in%20motion&offset=0">Thesis</a></p>
+            <p class="updated">Last updated October 2026</p>
             <p class="octo">🐙</p>
         </div>
     </body>

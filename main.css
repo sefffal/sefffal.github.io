@@ -1,6 +1,8 @@
 body {
     background-color: #eee;
+    color: #222;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
 }
 .body {
     background-color: white;
@@ -57,7 +59,7 @@ canvas {
 
 .link-grid {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     grid-row: auto auto;
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
@@ -83,4 +85,169 @@ canvas {
 .research h3 {
     text-align: center;
     width: 100%;
+}
+
+/* ---- Additions, October 2026 ---- */
+
+.body a {
+    color: #1a6d96;
+}
+.body a:hover {
+    color: #0d4766;
+}
+.header a.bread {
+    color: #7dc3e4;
+}
+.header a.bread:hover {
+    color: #eee;
+}
+.header h1, .header h3 {
+    margin: 0.4rem 0;
+}
+
+.profile {
+    float: right;
+    width: 250px;
+    margin: 0 0 1rem 1rem;
+}
+
+.callout {
+    border-left: 4px solid #1a6d96;
+    background: #eef6fa;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+}
+
+.news {
+    list-style: none;
+    padding-left: 0;
+}
+.news li {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+.news .date {
+    color: #666;
+    font-weight: 600;
+}
+
+.pubs li {
+    margin-bottom: 0.6rem;
+}
+
+figure {
+    margin: 1.5rem 0;
+}
+figcaption {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.4rem;
+}
+
+.equation {
+    text-align: center;
+    font-size: 1.15rem;
+    margin: 1.25rem 0;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+.equation .frac {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 0.2rem;
+}
+.equation .frac > span {
+    display: block;
+    padding: 0 0.2rem;
+}
+.equation .frac > span:first-child {
+    border-bottom: 1px solid #222;
+}
+
+table.simple {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+}
+table.simple th, table.simple td {
+    text-align: left;
+    padding: 0.35rem 0.6rem;
+    border-bottom: 1px solid #ddd;
+}
+table.simple td.num, table.simple th.num {
+    text-align: right;
+    white-space: nowrap;
+}
+
+#sky {
+    border: 1px solid #ccc;
+    background: #0b1020;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    align-items: center;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+.controls label {
+    white-space: nowrap;
+}
+.controls input[type=range] {
+    vertical-align: middle;
+}
+.readout {
+    font-size: 0.9rem;
+    color: #444;
+    min-height: 2.6em;
+}
+
+.updated {
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 3rem;
+}
+.updated + .octo {
+    margin-top: 2rem;
+}
+
+.link-grid .wide {
+    grid-column: 1 / -1;
+}
+.research.wide img {
+    width: 100%;
+    max-width: 480px;
+    height: 240px;
+    object-fit: contain;
+    margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+    .centre {
+        width: auto;
+        padding: 1.5rem 1rem;
+    }
+    .link-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile {
+        float: none;
+        display: block;
+        margin: 0 auto 1rem;
+    }
+    .news li {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .research img, .research.wide img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
 }

@@ -1,11 +1,12 @@
-<html>
-
-<head>
-    <title>William Thompson</title>
-    <link rel="stylesheet" type="text/css" href="../main.css" />
-    <link rel="stylesheet" type="text/css" href="../stars.css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Software | William Thompson</title>
+        <link rel="stylesheet" type="text/css" href="../main.css" />
+        <link rel="stylesheet" type="text/css" href="../stars.css" />
+    </head>
 
 <body>
     <div class="header stars-container">
@@ -14,14 +15,13 @@
             <h3>Astronomer</h3>
             <hr>
             <a class="bread" href="../index.html">Home</a>
-            <a class="bread" href="../research">Research</a>
-            <a class="bread" href="../cv.html">CV</a>
-            <a class="bread social" href="http://github.com/sefffal">GitHub</a>
-            <a class="bread social" href="http://x.com/AstroWrt">Twitter</a>
-            <a class="bread social"
-                href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google
-                Scholar</a>
-            <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
+                <a class="bread" href="../research/">Research</a>
+                <a class="bread" href="../students.html">Students</a>
+                <a class="bread" href="../cv.html">CV</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
+                <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
         </div>
         <div id='stars'></div>
         <div id='stars2'></div>
@@ -39,35 +39,44 @@
             This speed enables researchers to approach their modelling tasks with a new level of rigour, and following a full Bayesian workflow. One can&mdash;in less than the time it used to take to run a single model&mdash;compare how different individual data points impact a fit, compare how priors affect the results, or even run full suites of simulated fits to anticipate how new data would impact findings.
         </p>
         <p>
-            Octofitter supports an even-growing list of kinds of exoplanet data. At present, these include:
+            Octofitter supports an ever-growing list of kinds of exoplanet data. At present, these include:
         </p>
         <ul>
-            <li>Relative astrometry</li>
-            <li>Barycentric radial velocity (e.g. of a star)</li>
-            <li>Barycentric radial velocity (e.g. of a star)</li>
-            <li>Hipparcos-Gaia proper motion anomaly</li>
-            <li>Hipparcos IAD</li>
-            <li>Relative photometry</li>
-            <li>Absolute photometry</li>
-            <li>Direct images</li>
-            <li>Interferometric closure phases and squared visibilities e.g. from sparse aperture masking</li>
-            <li>GRAVITY closure phase data using kernel phase analysis</li>
+            <li>Relative astrometry, e.g. from direct imaging</li>
+            <li>Absolute astrometry: Hipparcos intermediate data, the Hipparcos-Gaia proper motion anomaly, and the full G23H model of Gaia DR2, DR3 and Hipparcos</li>
+            <li>Barycentric radial velocity (e.g. of a star), with optional Gaussian process models of stellar activity</li>
+            <li>Relative radial velocity (e.g. of a planet relative to its star)</li>
+            <li>Relative and absolute photometry</li>
+            <li>Direct images, sampled directly ("de-orbiting")</li>
+            <li>Interferometric closure phases and squared visibilities, e.g. from sparse aperture masking (NIRISS-AMI) or GRAVITY</li>
             <li>Arbitrary x vs. y likelihood maps e.g. from GRAVITY, spectral cross correlation, etc.</li>
             <li>Some spectral modelling features, e.g. to support GRAVITY data</li>
         </ul>
         In addition, all of the above data can be combined together through a user-specified joint model. These models can freely incorporate the following features:
         <ul>
+            <li>Any number of planets, including transdimensional models that marginalize over the number of planets</li>
+            <li>Optional N-body integration, and hierarchical systems such as moons, circumbinary planets, and 2+2 quadruples</li>
             <li>Tie dynamical masses and photometry together through age &amp; cooling tracks</li>
             <li>Specify custom priors, including multivariate priors with correlations, etc.</li>
             <li>Specify prior distributions using kernel density estimates (just pass raw samples).</li>
             <li>Freely transform variables to different bases</li>
+            <li>Bound and unbound (hyperbolic) orbits</li>
         </ul>
-        <img src="../images/fit-rv.png" width="350"/>
+        <img src="../images/fit-rv.png" width="350" alt="Octofitter fit to radial velocity data"/>
+        <h3><a href="https://exopost.wthompson.space">Exopost</a></h3>
+        <p>
+            Exopost is a public website for exploring companion posteriors from Octofitter and G23H.
+            For more than 100,000 stars you can browse orbits and masses, view detection limits, filter the catalogue, and download the posterior samples for your own analysis.
+            Queries run directly in your browser using DuckDB.
+        </p>
+        <p>
+            The calibrated Gaia DR2 catalog for 18 million stars that underlies G23H is described in <a href="https://doi.org/10.3847/1538-3881/ae64ed">Thompson et al. 2026</a>.
+        </p>
         <h3><a href="https://sefffal.github.io/PairPlots.jl/">PairPlots</a></h3>
         <p>
             PairPlots is a Julia and Python package for generating pair plots, also known as corner plots. Inspired by the very popular Python package <code>corner.py</code>, this package produces highly customizable visualizations to compare high-dimensional data e.g. Markov-chain monte carlo posteriors.
         </p>
-        <img src="../images/pairplot.png" width="250"/> 
+        <img src="../images/pairplot.png" width="250" alt="Example pair plot"/> 
         <h3><a href="https://sefffal.github.io/PlanetOrbits.jl/">PlanetOrbits</a></h3>
         <p>
             PlanetOrbits.jl is the calculation backend for Octofitter. It provides an easy interface to a large suite of different orbit calculations, and is fully auto-differentiable.
@@ -86,14 +95,14 @@ img["HEADER1"] = 1.0
 img["HEADER1",/] = "comment 1"
 imview(img, stretch=logstretch)
         </pre>
-        <img src="../images/astroimages.png" width="350" />
+        <img src="../images/astroimages.png" width="350" alt="AstroImages.jl example" />
 
-        <h3><a href="http://juliaastro.org">JuliaAstro</a></h3>
-        I help maintain some of the Julia Astro packages, and the main documentation and tutorial site: <a href="http://juliaastro.org">http://juliaastro.org</a>.
+        <h3><a href="https://juliaastro.org">JuliaAstro</a></h3>
+        I help maintain some of the Julia Astro packages, and the main documentation and tutorial site: <a href="https://juliaastro.org">juliaastro.org</a>.
 
         <h3><a href="https://github.com/New-Earth-Lab">Julia RTC</a></h3>
         <p>
-            For the SPIDERS instrument, I developed a Julia-based real time computing framework. This framework is based around the ultra-low latency <code>aeron</code> framework developed for high-frequency trading.
+            For the SPIDERS instrument, I developed a Julia-based real-time computing framework. It is based around the ultra-low-latency <code>aeron</code> messaging framework developed for high-frequency trading.
         </p>
         <p>
             Our Julia RTC framework is competitive with hand-written C, but far easier to use.
@@ -101,7 +110,8 @@ imview(img, stretch=logstretch)
         <p>
             You can read more about the framework in our SPIE proceeding: <a href="https://arxiv.org/abs/2407.07207">https://arxiv.org/abs/2407.07207</a>.
         </p>
-        <img src="../images/rtc.png" width="350" />
+        <img src="../images/rtc.png" width="350" alt="Julia real-time computer architecture" />
+        <p class="updated">Last updated October 2026</p>
         <p class="octo">🐙</p>
     </div>
 </body>

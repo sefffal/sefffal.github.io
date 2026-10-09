@@ -1,9 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>William Thompson</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Instrumentation | William Thompson</title>
         <link rel="stylesheet" type="text/css" href="../main.css" />
         <link rel="stylesheet" type="text/css" href="../stars.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
         <div class="header stars-container">
@@ -12,10 +14,11 @@
                 <h3>Astronomer</h3>
                 <hr>
                 <a class="bread" href="../index.html">Home</a>
-                <a class="bread" href="../research">Research</a>
+                <a class="bread" href="../research/">Research</a>
+                <a class="bread" href="../students.html">Students</a>
                 <a class="bread" href="../cv.html">CV</a>
-                <a class="bread social" href="http://github.com/sefffal">GitHub</a>
-                <a class="bread social" href="http://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
                 <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
                 <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
             </div>
@@ -25,9 +28,10 @@
         </div>
         <div class="centre body">
             <h1>Instrumentation</h1>
-            <p>I am currently involved in three major instrumentation projects, including SPIDERS (the Subaru Pathfinder Instrument for Detecting Exoplanets and Retrieving Spectra), the Gemini Planet Imager 2.0 / CAL2 upgrade, and NRC's optical aperture synthesis project.</p>
-            <p>SPIDERS is pictured in the image below, under final assembly and testing at NRC HAA's integration facility:</p>
-            <img src="../images/spiders.png" width="250" />
+            <p>I have been involved in three major instrumentation projects at NRC Herzberg: SPIDERS (the Subaru Pathfinder Instrument for Detecting Exoplanets and Retrieving Spectra), the Gemini Planet Imager 2.0 / CAL2 upgrade, and NRC's optical aperture synthesis project.</p>
+            <p>SPIDERS has now been deployed at the Subaru Telescope.</p>
+            <p>SPIDERS is pictured in the image below, during final assembly and testing at NRC HAA's integration facility:</p>
+            <img src="../images/spiders.png" width="250" alt="The SPIDERS instrument in the lab" />
             <p>Photo credit: Olivier Lardière.</p>
 
             <h4>Focal Plane Wavefront Sensing</h4>
@@ -35,8 +39,8 @@
             </p>
             <p>
                 In SPIDERS, we will demonstrate the Fast Atmospheric Self-Coherent Camera Technique (<a href="https://nrc-publications.canada.ca/eng/view/object/?id=020d97bf-a86d-4499-b6d2-dd28999c204a">Gerard et al 2019</a>). 
-                With the FAST SCC, we turn the science camera into a interferometer.
-                Instead of blocking starlight using a coronagraph, we redict it, filter it, and interfer it back with itself.
+                With the FAST SCC, we turn the science camera into an interferometer.
+                Instead of simply blocking starlight with a coronagraph, we redirect it, filter it, and interfere it back with itself.
             </p>
             <p>
                 The upshot is that our science images become fringed anywhere light leaks past the coronagraph. Planets and disks, being incoherent with the star, remain unfringed, allowing us to instantly discriminate between planet light and starlight.
@@ -44,23 +48,37 @@
             <p>
                 Using a deformable mirror and techniques from adaptive optics, we can use this information to perform an active correction and create a region around the star where the starlight has been dramatically suppressed&mdash;a.k.a. "digging a dark hole":
             </p>
-            <img src="../images/square-dark-hole.png" width="250"/>
+            <img src="../images/square-dark-hole.png" width="250" alt="A dark hole dug in the stellar halo"/>
             <h4>Coherent Differential Imaging</h4>
             <p>
                 In addition to active correction, we can use the self-coherent camera to post-process our data and reveal even fainter planets. This software step can be combined with the hardware loop described above to further suppress stubborn speckles.
             </p>
-            <img src="../images/cdi.png" width="500"/>
+            <img src="../images/cdi.png" width="500" alt="Coherent differential imaging results"/>
             <h4>Fourier Transform Spectroscopy</h4>
             <p>
-                Using spectral information to help discriminate planet light from starlight has a long history. Unfortunately, it has often not lived up to its expectations. Real data from instruments like GPI, SPHERE, and SCExAO reveals that low-resolution integral field units give datacubes with speckles that evolve considerably with wavelength.
+                Using spectral information to help discriminate planet light from starlight has a long history. Unfortunately, it has often not lived up to expectations. Real data from instruments like GPI, SPHERE, and SCExAO reveals that low-resolution integral field units give datacubes in which speckles evolve considerably with wavelength.
             </p>
             <p>
-                To better understand chromaticity in high contrast instruments, to try and improve on current performance, and to combine spectroscopy with self-coherent camera, I proposed and helped to build an Imaging Fourier Transform Spectrograph (IFTS) for the SPIDERS instrument. 
+                To better understand chromaticity in high contrast instruments, to try to improve on current performance, and to combine spectroscopy with the self-coherent camera, I proposed and helped to build an Imaging Fourier Transform Spectrograph (IFTS) for the SPIDERS instrument. 
             </p>
-            <p>The SPIDERS IFTS will be capable of imaging exoplanets with a spectral resolution of over R15,000. Preliminary results show a factor of 40-50 starlight suppression may be possible using spectral differential imaging with this instrument. A collapsed cube is visible in the image below:</p>
-            <img src="../images/spiders-ifts-rgb1.png" width="250">
+            <p>The SPIDERS IFTS will be capable of imaging exoplanets with a spectral resolution of over R&nbsp;=&nbsp;15,000. Preliminary results show a factor of 40-50 starlight suppression may be possible using spectral differential imaging with this instrument. A collapsed cube is visible in the image below:</p>
+            <img src="../images/spiders-ifts-rgb1.png" width="250" alt="Collapsed SPIDERS IFTS data cube">
             <!-- <h4>Optical Apperture Synthesis</h4> -->
 
+            <h4>What's next: GPI 2.0 and the Habitable Worlds Observatory</h4>
+            <p>
+                SPIDERS is a pathfinder. The same focal-plane wavefront sensing approach is being built into CAL2, NRC's contribution to the GPI&nbsp;2.0 upgrade of the Gemini Planet Imager at Gemini North.
+                GPI&nbsp;2.0 will be a powerful tool for imaging planets found by Gaia.
+            </p>
+            <p>
+                Looking further ahead, techniques like the self-coherent camera and coherent differential imaging are relevant to NASA's Habitable Worlds Observatory, which aims to image Earth-like planets around nearby stars.
+                Through NRC's NEW-EARTH Lab, we are developing wavefront sensing and control methods with that goal in mind.
+            </p>
+            <p>
+                The real-time software behind SPIDERS is open source and written in Julia; see the <a href="software.html">Software</a> page.
+            </p>
+
+            <p class="updated">Last updated October 2026</p>
             <p class="octo">🐙</p>
         </div>
     </body>

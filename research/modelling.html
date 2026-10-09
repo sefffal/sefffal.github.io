@@ -1,11 +1,12 @@
-<html>
-
-<head>
-    <title>William Thompson</title>
-    <link rel="stylesheet" type="text/css" href="../main.css" />
-    <link rel="stylesheet" type="text/css" href="../stars.css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Modelling, Orbits &amp; Gaia | William Thompson</title>
+        <link rel="stylesheet" type="text/css" href="../main.css" />
+        <link rel="stylesheet" type="text/css" href="../stars.css" />
+    </head>
 
 <body>
     <div class="header stars-container">
@@ -14,44 +15,79 @@
             <h3>Astronomer</h3>
             <hr>
             <a class="bread" href="../index.html">Home</a>
-            <a class="bread" href="../research">Research</a>
-            <a class="bread" href="../cv.html">CV</a>
-            <a class="bread social" href="http://github.com/sefffal">GitHub</a>
-            <a class="bread social" href="http://x.com/AstroWrt">Twitter</a>
-            <a class="bread social"
-                href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google
-                Scholar</a>
-            <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
+                <a class="bread" href="../research/">Research</a>
+                <a class="bread" href="../students.html">Students</a>
+                <a class="bread" href="../cv.html">CV</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
+                <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
         </div>
         <div id='stars'></div>
         <div id='stars2'></div>
         <div id='stars3'></div>
     </div>
     <div class="centre body">
-        <h1>Modelling</h1>
+        <h1>Modelling, Orbits &amp; Gaia</h1>
 
         <p>
             My modelling research centres on joint orbit fitting: building Bayesian models that simultaneously constrain orbits using radial velocities, direct imaging, absolute astrometry, and interferometry.
         </p>
         <p>
             Traditional approaches treat these data types independently, but a planet produces correlated signatures across all of them. Combining constraints within a single model reveals companions missed by any single technique.
+            (New to astrometry? See my <a href="../astrometry.html">short introduction</a>.)
+        </p>
+
+        <h3>Gaia and Hipparcos</h3>
+        <p>
+            A major focus is Gaia astrometry.
+            Comparing Hipparcos and Gaia measurements reveals stars whose motion is being tugged by an unseen companion, which constrains companion masses and orbits for thousands of nearby stars.
         </p>
         <p>
-            A major focus is Gaia astrometry. The Hipparcos-Gaia Catalog of Accelerations provides proper motion anomaly measurements that constrain companion masses and orbits for thousands of nearby stars. I have developed methods to exploit Gaia DR4 epoch astrometry when it is released.
+            In <a href="https://doi.org/10.3847/1538-3881/ae64ed">G23H (Thompson et al. 2026)</a>, we extracted as much of this information as possible from existing data.
+            We calibrated Gaia DR2 proper motions and DR3&ndash;DR2 position differences against the Gaia DR3 reference frame, and combined them with the Hipparcos-Gaia Catalog of Accelerations, the Hipparcos intermediate astrometric data, Gaia's excess astrometric noise, and Gaia radial-velocity variability, in one joint likelihood that marginalizes over Gaia's unpublished observation epochs.
+            The result is full orbit posteriors for a large class of companions. In some cases, like 14 Her b, this is enough to confirm the planetary nature of a signal using only Gaia and Hipparcos.
+            The calibrated catalog covers 18 million stars and is public.
         </p>
         <p>
-            I also work on fitting orbits directly to imaging data&mdash;sometimes called "de-orbiting." Rather than extracting astrometry from images, this approach samples orbital parameters directly from pixel values, enabling detection of planets too faint to appear in any single epoch by coherently combining observations over their orbital motion.
+            Rather than reporting only the most significant detections, we compute a posterior for every star.
+            These posteriors, together with detection limits, are browsable on <a href="https://exopost.wthompson.space">Exopost</a> for more than 100,000 stars.
+            Because non-detections are kept, the same posteriors can be combined in population-level models to measure how common giant planets and brown dwarfs are, and how that depends on the mass and composition of their host stars.
         </p>
         <p>
-            Beyond fitting, I emphasize rigorous model validation. Techniques like simulation-based calibration verify that posteriors are correctly calibrated, while cross-validation and posterior predictive checks identify outliers and model misspecification. These tools are essential for trusting results from complex joint models.
+            Gaia DR4, scheduled for 2 December 2026, will add epoch astrometry: the individual position measurements for each star.
+            I have been developing fast methods to fit these data at the scale of the full Gaia catalogue, and to combine them with everything else we know about each system.
         </p>
+
+        <h3>Fitting orbits directly to images</h3>
+        <p>
+            I also work on fitting orbits directly to imaging data&mdash;sometimes called "de-orbiting."
+            Rather than extracting astrometry from images, this approach samples orbital parameters directly from pixel values, enabling detection of planets too faint to appear in any single epoch by coherently combining observations over their orbital motion.
+        </p>
+
+        <h3>Validation</h3>
+        <p>
+            Beyond fitting, I emphasize rigorous model validation.
+            Techniques like simulation-based calibration verify that posteriors are correctly calibrated, while cross-validation and posterior predictive checks identify outliers and model misspecification.
+            These tools are essential for trusting results from complex joint models, and they have proven their worth in practice by catching subtle software defects.
+            Independent benchmarks help too: for the binary brown dwarf <a href="https://doi.org/10.3847/1538-3881/adb4f2">Gliese 229 Ba/Bb</a>, the total mass from the tight inner orbit agrees with the mass inferred from the Hipparcos-Gaia acceleration of the host star.
+        </p>
+
+        <h3>Software</h3>
         <p>
             To make these methods practical, I built Octofitter around a custom probabilistic programming system. User-specified models are transformed at compile time into type-stable, automatically differentiable code. This enables gradient-based sampling (Hamiltonian Monte Carlo) with performance competitive with hand-written implementations&mdash;fits that once took hours now run in minutes.
+            For difficult, multimodal posteriors, Octofitter works with the parallel tempering sampler <a href="https://pigeons.run/">Pigeons</a>, developed by my collaborators in UBC Statistics.
         </p>
         <p>
             See the <a href="software.html">Software</a> page for more details on Octofitter and related packages.
         </p>
 
+        <figure>
+            <img src="../images/fit-2-planet.png" alt="Orbit posteriors for two directly imaged planets" style="max-width:420px; width:100%" />
+            <figcaption>Orbit posteriors for a two-planet system fitted to relative astrometry from direct imaging with Octofitter.</figcaption>
+        </figure>
+
+        <p class="updated">Last updated October 2026</p>
         <p class="octo">🐙</p>
     </div>
 </body>

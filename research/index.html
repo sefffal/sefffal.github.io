@@ -1,9 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>William Thompson</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Research | William Thompson</title>
         <link rel="stylesheet" type="text/css" href="../main.css" />
         <link rel="stylesheet" type="text/css" href="../stars.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
         <div class="header stars-container">
@@ -12,10 +14,11 @@
                 <h3>Astronomer</h3>
                 <hr>
                 <a class="bread" href="../index.html">Home</a>
-                <a class="bread" href="../research">Research</a>
+                <a class="bread" href="../research/">Research</a>
+                <a class="bread" href="../students.html">Students</a>
                 <a class="bread" href="../cv.html">CV</a>
-                <a class="bread social" href="http://github.com/sefffal">GitHub</a>
-                <a class="bread social" href="http://x.com/AstroWrt">Twitter</a>
+                <a class="bread social" href="https://github.com/sefffal">GitHub</a>
+                <a class="bread social" href="https://x.com/AstroWrt">Twitter</a>
                 <a class="bread social" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>
                 <a class="bread social" href="https://orcid.org/0000-0001-5684-4593">ORCID</a>
             </div>
@@ -25,34 +28,64 @@
         </div>
         <div class="centre body">
             <h1>Research</h1>
+            <p>
+                My research combines three threads: detecting and characterizing planets with astrometry and joint orbit modelling, observing those planets with large telescopes, and building the instruments and software that make this possible.
+                New to astrometry? Start with my <a href="../astrometry.html">short introduction</a>.
+            </p>
             <br/>
             <div class="link-grid">
+                <div class="research wide">
+                    <a href="../astrometry.html">
+                        <img src="../images/astrometry-sky.png" alt="Simulated path of a star on the sky, combining proper motion, parallax and a planet's pull"/>
+                        <h3>Astrometry: Finding Planets by Watching Stars Move</h3>
+                    </a>
+                </div>
+                <div class="research">
+                    <a href="modelling.html">
+                        <img src="../images/fit-rv.png" alt="Orbit fit to radial velocity data"/>
+                        <h3>Modelling, Orbits &amp; Gaia</h3>
+                    </a>
+                </div>
                 <div class="research">
                     <a href="observations.html">
-                        <img src="../images/hr8799-orbits.jpg"/>
+                        <img src="../images/hr8799-orbits.jpg" alt="Orbits of the HR 8799 planets"/>
                         <h3>Observational work</h3>
                     </a>
                 </div>
                 <div class="research">
                     <a href="instrumentation.html">
-                        <img src="../images/spiders.png"/>
+                        <img src="../images/spiders.png" alt="The SPIDERS instrument"/>
                         <h3>Instrumentation</h3>
                     </a>
                 </div>
                 <div class="research">
-                    <a href="modelling.html">
-                        <img src="../images/fit-rv.png"/>
-                        <h3>Modelling &amp; Orbits</h3>
-                    </a>
-                </div>
-                <div class="research">
                     <a href="software.html">
-                        <img src="../images/pairplot.png"/>
+                        <img src="../images/pairplot.png" alt="A pair plot made with PairPlots.jl"/>
                         <h3>Software</h3>
                     </a>
                 </div>
             </div>
-<!--            
+
+            <h3>Selected publications</h3>
+            <p>
+                A full list is on <a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0001-5684-4593&amp;sort=date%20desc%2C%20bibcode%20desc">NASA ADS</a> and <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=QPQCOPYAAAAJ&pagesize=100">Google Scholar</a>, and in my <a href="../cv.html">CV</a>.
+            </p>
+            <ul class="pubs">
+                <li><strong>Thompson et al. 2026</strong>, <a href="https://doi.org/10.3847/1538-3881/ae64ed">Detecting and Characterizing Companions with a Calibrated Gaia DR2, DR3, and Hipparcos Catalog (G23H)</a>, AJ 172, 53</li>
+                <li><strong>Thompson et al. 2025</strong>, <a href="https://doi.org/10.3847/1538-3881/ae0cbd">Revised Mass and Orbit of ε Eridani b: A 1 Jupiter-Mass Planet on a Near-Circular Orbit</a>, AJ 170, 301</li>
+                <li><strong>Thompson et al. 2025</strong>, <a href="https://doi.org/10.3847/1538-3881/adb4f2">On the Orbit of the Binary Brown Dwarf Companion GL229 Ba and Bb</a>, AJ 169, 193</li>
+                <li><strong>Xuan, Mérand, Thompson et al. 2024</strong>, <a href="https://doi.org/10.1038/s41586-024-08064-x">The cool brown dwarf Gliese 229 B is a close binary</a>, Nature 634, 1070</li>
+                <li><strong>Thompson et al. 2023</strong>, <a href="https://doi.org/10.3847/1538-3881/acf5cc">Octofitter: Fast, Flexible, and Accurate Orbit Modeling to Detect Exoplanets</a>, AJ 166, 164</li>
+                <li><strong>Thompson et al. 2023</strong>, <a href="https://doi.org/10.3847/1538-3881/aca1af">Deep Orbital Search for Additional Planets in the HR 8799 System</a>, AJ 165, 29</li>
+                <li><strong>Thompson &amp; Marois 2021</strong>, <a href="https://doi.org/10.3847/1538-3881/abee7d">Improved Contrast in Images of Exoplanets Using Direct Signal-to-noise Ratio Optimization</a>, AJ 161, 236</li>
+            </ul>
+            <p>Selected collaborations:</p>
+            <ul class="pubs">
+                <li>Sanghi, Thompson et al. 2026, <a href="https://arxiv.org/abs/2603.08787">Worlds Next Door IV: a precise dynamical mass and luminosity for ε Ind Ab</a></li>
+                <li>Blakely, Thompson et al. 2026, <a href="https://arxiv.org/abs/2602.07731">Dynamical Mass Constraints on Transition Disk Perturbers with the G23H Catalog</a></li>
+                <li>Currie et al. 2023, <a href="https://doi.org/10.1126/science.abo6192">Direct imaging and astrometric detection of a gas giant planet orbiting an accelerating star</a>, Science 380, 198</li>
+            </ul>
+            <!--            
             <h3>Modelling</h3>
             <p>
                 A major focus of my research is detecting planets by combining orbit modelling with models of raw data.
@@ -69,6 +102,7 @@
             <h4>Direct Image Modelling / "De-orbitting"</h4>
             <h4>Interferometry</h4>
             <h4>Proper Motion / Absolute Astrometry</h4>-->
+            <p class="updated">Last updated October 2026</p>
             <p class="octo">🐙</p>
         </div>
     </body>
